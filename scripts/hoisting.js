@@ -14,10 +14,9 @@ hoist()
 
 var city ='chennai'
 function hoist2(){
-    console.log(city)
-     city ='madurai'
+    console.log( 'before:='+city)
+       city ='madurai'
 
-    console.log(city)
-
+    console.log('After:='+city)
 }
 hoist2()
