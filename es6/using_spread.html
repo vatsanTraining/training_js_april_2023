@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            background-color: #ff22bb;
+        }
+    </style>
+</head>
+<body>
+    <section id="topic1" class="content">
+        <p>Chennai</p>
+        <p>Coimbatore</p>
+        <p>Erode</p>
+    </section>
+    <section id="topic2" class='content'>
+      <p>India</p>
+      <p>Nepal</p>
+      <p>Srilanka</p>
+    </section>
+
+    <script>
+
+let sectionList = document.querySelectorAll(".content")
+console.log(sectionList)
+let sections = Array.from(sectionList)
+          // select descendant element
+          let cityList = document.querySelectorAll("#topic1>p")
+          //Transforming nodeList into array
+        let cities = Array.from(cityList)
+        let countryList = document.querySelectorAll("#topic2>p")
+        let countries = Array.from(countryList)
+
+        let combined = [...cities,...countries]  //spread
+
+          combined.forEach((eachElement,idx)=>{
+             console.log(eachElement.innerHTML)
+          })
+
+          const printCity = (city1,city2,city3)=>{
+            console.log(city1.innerHTML +',' +city2.innerHTML)
+          }
+          // invoke the printCity function by passing cities
+          printCity(...cities)
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+
+//function(a,b),function(...a),function(a=5)
+// reusable method which can take any element 
+// and a handler function which will be attached 
+// to the element
+        function objDestructure({handler,element}){
+
+            let para = document.createElement(element)
+            let text = "Using Object Destructring"
+            para.innerHTML=text
+
+            para.addEventListener('mouseover',handler)
+
+            document.body.append(para)
+        }
+
+         let click ={
+            element:'p',
+            handler:() =>prompt('hello')
+         }
+
+         function oneMoreDestru(employee){
+            let {id,firstName} =employee
+           console.log('id'+id)
+           console.log('First Name'+firstName)
+         }
+
+         oneMoreDestru({'id':202,'firstName':'jagan'})
+
+        var userNames = ["ramesh","suresh","magesh",'ganesh']
+
+       let  [bestStudent,goodStudent,...others] =userNames
+
+        // let bestStudent = userNames[0];
+        // let goodStudent = userNames[1];
+
+        console.log('Best' +bestStudent)
+        console.log('Good'+goodStudent)
+        console.log(others)
+
+        objDestructure(click)
+    </script>
+</body>
+</html>

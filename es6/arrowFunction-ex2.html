@@ -13,11 +13,11 @@
 
     <script>
 
-const greet = (color)=> 
+const greet = (color='grey')=> 
               () => document.body.style.backgroundColor=color
 
   document.getElementById('green')
-          .addEventListener('click',greet('green'))
+          .addEventListener('click',greet())
         
       </script>
 </body>

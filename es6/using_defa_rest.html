@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const makeButton = (id,text) =>{
+          let btn=  document.createElement('button');
+          btn.setAttribute('id',id)
+          btn.innerHTML=text
+          return btn
+        }
+
+        const usingRestParam =(...colors)=>{
+            colors.forEach(
+                (eachColor,idx)=>
+                console.log(eachColor + idx)
+            )
+        }
+        
+        const createButtonsUsingRestParam= (...btns) =>{
+
+            btns.forEach((eachBtn,idx) =>{
+                        document.body.append(eachBtn)
+
+
+            })
+        }
+
+        var btnData =[ 
+            {'id':'btn3','text':'Add'},
+             {'id':'btn4','text':'Edit'}
+            ]
+
+            btnData.forEach((eachBtn,idx) =>{
+
+               let btnRef= makeButton(eachBtn.id,eachBtn.text)
+               createButtonsUsingRestParam(btnRef)
+            })
+        let submitButton = makeButton('btn1','Delete')
+
+        let resetButton = makeButton('btn2','Show')
+        
+        createButtonsUsingRestParam(submitButton,resetButton)
+
+    </script>
+</body>
+</html>
