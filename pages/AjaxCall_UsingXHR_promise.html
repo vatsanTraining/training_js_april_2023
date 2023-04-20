@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Call Using Promise</title>
+</head>
+<body>
+    <script>
+
+       const makeRequest =function(url,method='GET'){
+
+         var xhr = new XMLHttpRequest();
+
+        return new Promise((resolve,reject)=>{
+
+            xhr.onreadystatechange =function(){
+                if (xhr.readyState!=4) return 
+
+                if(xhr.status==200){
+                    resolve(xhr)
+                }else {
+                    reject({
+                        status:xhr.status,
+                        text:xhr.statusText
+                    })
+                }
+            }
+            xhr.open(method,url,true)
+            xhr.send()
+        })
+
+
+       }
+
+       let promise=makeRequest('https://jsonplaceholder.typicode.com/todos/1')
+
+         promise.then(data =>{
+             console.log(data)
+            let respDataAJson = JSON.parse(data.responseText)
+             document.getElementById('msg').innerHTML=respDataAJson.title
+            })
+         .catch(err => console.error(err))
+
+
+    </script>
+</body>
+</html>
