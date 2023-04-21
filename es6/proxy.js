@@ -2,6 +2,8 @@
 
     let target = {}
 
+    
+
     console.log(target)
     let pxy = new Proxy(target,{
 
@@ -28,3 +30,17 @@
     console.log(pxy.password)
     console.log(target)
 })();
+
+let data = new Map()
+
+ data.set('hse',{'pid':'cp1020','scripttype':'webapp'})
+ data.set('mtp',{'pid':'cp1020','scripttype':'webapp'})
+ data.set('mail',{'pid':'cp1020','scripttype':'webapp'})
+
+
+ console.log(data.values())
+
+ K.Srivatsan
+ vatsank@gmail.com
+ 9444380320
+ 
